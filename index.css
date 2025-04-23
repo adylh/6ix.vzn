@@ -1,0 +1,23 @@
+body {
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .blinking-logo {
+    animation: blink 1.7s infinite;
+    width: 200px; /* or whatever size fits your design */
+    height: auto;
+  }
+    @keyframes blink {
+        0%, 100% {
+        opacity: 1;
+        }
+        50% {
+        opacity: 0;
+        }
+    }
+
+  .Coming{
+    font-size: 90px;
+  }
