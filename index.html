@@ -12,9 +12,26 @@
     <div class="d-flex justify-content-center align-items-center flex-column vh-100 text-center">
       <img src="33.svg" alt="Logo" class="blinking-logo" />
       <h5 class="mt-3">Website coming soon...</h5 alt="Coming" class="Coming">
-        <a class="btn btn-secondary" href="home-page/home.html">Enter</a>
-      
+        <input type="password" id="passwordEnter" class="form-control mt-3" placeholder="Enter Password" />
+        <button class="btn btn-secondary mt-3" onclick="checkPassword()">Enter</button>
+        <p id="error-message" class="text-danger mt-2"></p>
+        <!-- <a class="btn btn-secondary" href="home-page/home.html">Enter</a> -->
     </div>
+
+    <script>
+      const correctPassword = "BusinessManagement";
+      
+      function checkPassword() {
+        const passwordInput = document.getElementById("passwordEnter").value;
+        const errorMessage = document.getElementById("error-message");
+
+        if (passwordInput === correctPassword) {
+          window.location.href = "home-page/home.html";
+        } else {
+          errorMessage.textContent = "Incorrect password. Please try again.";
+        }
+      }
+    </script>
   
   </body>
 </html>
