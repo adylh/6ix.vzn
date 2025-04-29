@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome (Optional for Icons if you want later) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="/contact-us/index.css">
+
+  <style>
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Contact Us</h1>
+
+  <form id="contactForm" action="https://formspree.io/f/xdkgakwk" method="POST" class="border p-4 rounded bg-dark shadow-sm">
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name (Optional)</label>
+        <input type="text" id="lastName" name="lastName" class="form-control">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Preferred Contact Method</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="contactInstagram" name="contactMethod" value="Instagram" required>
+        <label class="form-check-label" for="contactInstagram">Instagram</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="contactEmail" name="contactMethod" value="Email">
+        <label class="form-check-label" for="contactEmail">Email</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="contactPhone" name="contactMethod" value="Phone">
+        <label class="form-check-label" for="contactPhone">Phone Number</label>
+      </div>
+    </div>
+
+    <!-- Conditional Fields -->
+    <div id="instagramField" class="mb-3 hidden">
+      <label for="instagramHandle" class="form-label">Instagram Handle</label>
+      <input type="text" id="instagramHandle" name="instagramHandle" class="form-control" placeholder="@yourhandle">
+    </div>
+
+    <div id="emailField" class="mb-3 hidden">
+      <label for="emailAddress" class="form-label">Email Address</label>
+      <input type="email" id="emailAddress" name="emailAddress" class="form-control" placeholder="you@example.com">
+    </div>
+
+    <div id="phoneField" class="row mb-3 hidden">
+      <div class="col-md-4">
+        <label for="countryCode" class="form-label">Country Code</label>
+        <select id="countryCode" name="countryCode" class="form-select">
+          <option value="+1">+1 (USA/Canada)</option>
+          <option value="+44">+44 (UK)</option>
+          <option value="+61">+61 (Australia)</option>
+          <option value="+91">+91 (India)</option>
+          <!-- Add more if needed -->
+        </select>
+      </div>
+      <div class="col-md-8">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="service" class="form-label">Service You're Interested In</label>
+      <select id="service" name="service" class="form-select" required>
+        <option value="">-- Please Select --</option>
+        <option value="Logo Design">Logo Design</option>
+        <option value="Thumbnail Design">Thumbnail Design</option>
+        <option value="Cover Art">Cover Art</option>
+        <option value="Video Editing">Video Editing</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="additionalInfo" class="form-label">Tell us more</label>
+      <textarea id="additionalInfo" name="additionalInfo" rows="5" class="form-control" placeholder="Explain what you want to know more about..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+  </form>
+
+  <div id="response-message" class="mt-3 text-center fw-bold"></div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  const messageDiv = document.getElementById('response-message');
+
+  const instagramField = document.getElementById('instagramField');
+  const emailField = document.getElementById('emailField');
+  const phoneField = document.getElementById('phoneField');
+
+  const contactRadios = document.querySelectorAll('input[name="contactMethod"]');
+
+  contactRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      instagramField.classList.add('hidden');
+      emailField.classList.add('hidden');
+      phoneField.classList.add('hidden');
+
+      if (this.value === 'Instagram') {
+        instagramField.classList.remove('hidden');
+      } else if (this.value === 'Email') {
+        emailField.classList.remove('hidden');
+      } else if (this.value === 'Phone') {
+        phoneField.classList.remove('hidden');
+      }
+    });
+  });
+
+  contactForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        messageDiv.textContent = "✅ Thank you! Your message has been sent.";
+        messageDiv.style.color = "green";
+        contactForm.reset();
+        instagramField.classList.add('hidden');
+        emailField.classList.add('hidden');
+        phoneField.classList.add('hidden');
+      } else {
+        messageDiv.textContent = "❌ Oops! Something went wrong. Please try again.";
+        messageDiv.style.color = "red";
+      }
+    } catch (error) {
+      messageDiv.textContent = "❌ Error! Please try again.";
+      messageDiv.style.color = "red";
+    }
+
+    messageDiv.style.display = "block";
+  });
+});
+</script>
+
+</body>
+</html>
