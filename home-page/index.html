@@ -66,46 +66,7 @@
     </section>
 <!-- Hero Section End -->
 
-<!-- <section class="services" id="portfolio" style="padding: 30px 0; background-color: black;">
-    <div class="container">
-      <h2 class="text-center mb-4 text-white">Our Services</h2>
-      <div class="row justify-content-center">
-        
-        <div class="col-md-6 d-flex justify-content-center mb-4">
-          <div class="card service-card">
-            <div class="card-body">
-              <h5 class="card-title">Graphic Design</h5>
-              <ul class="card-text">
-                <li>Logo Design</li>
-                <li>Social Media Graphics</li>
-                <li>Cover Art</li>
-                <li>Flyers and Posters</li>
-                <li>Custom Illustrations</li>
-              </ul>
-              <a href="/graphics-design/" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-md-6 d-flex justify-content-center mb-4">
-          <div class="card service-card">
-            <div class="card-body">
-              <h5 class="card-title">Video Editing</h5>
-              <ul class="card-text">
-                <li>YouTube Video Editing</li>
-                <li>Reels and TikToks</li>
-                <li>Promotional Videos</li>
-                <li>Music Video Cuts</li>
-                <li>Highlight Montages</li>
-              </ul>
-              <a href="/contact-us/" class="btn btn-primary">Form checker</a>
-            </div>
-          </div>
-        </div>
-  
-      </div>
-    </div>
-  </section> -->
+
 
   <section class="py-5 bg-black text-center">
     <h2 class="fw-bold">Our Services</h2>
@@ -147,26 +108,67 @@
   
     <!-- Filter Buttons -->
     <div class="mb-4">
-      <button class="btn btn-primary me-2">All</button>
-      <button class="btn btn-outline-secondary me-2">Graphics</button>
-      <button class="btn btn-outline-secondary">Videos</button>
-    </div> 
+      <button class="btn btn-primary me-2" id="filter-all">All</button>
+      <button class="btn btn-outline-secondary me-2" id="filter-graphics">Graphics</button>
+      <button class="btn btn-outline-secondary" id="filter-videos">Videos</button>
+    </div>
   
     <!-- Portfolio Grid -->
     <div class="container">
       <div class="row g-4 justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-4 portfolio-item" data-category="graphics">
           <img src="paintball.jpg" class="img-fluid rounded" alt="Portfolio 1">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 portfolio-item" data-category="videos">
           <img src="druski.JPG" class="img-fluid rounded" alt="Portfolio 2">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 portfolio-item" data-category="graphics">
           <img src="selfie.JPG" class="img-fluid rounded" alt="Portfolio 3">
         </div>
       </div>
     </div>
   </section>
+<!-- this script is to filter the buttons so that when graphics is selected, only graphics show and same with videos. -->
+  <script>
+  const filterButtons = document.querySelectorAll("button[id^='filter']");
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+  function setActiveButton(activeId) {
+    filterButtons.forEach(btn => {
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-outline-secondary");
+    });
+
+    const activeBtn = document.getElementById(activeId);
+    activeBtn.classList.remove("btn-outline-secondary");
+    activeBtn.classList.add("btn-primary");
+  }
+
+  function filterPortfolio(category) {
+    portfolioItems.forEach(item => {
+      if (category === "all" || item.dataset.category === category) {
+        item.classList.remove("hide");
+      } else {
+        item.classList.add("hide");
+      }
+    });
+  }
+
+  document.getElementById("filter-all").addEventListener("click", () => {
+    filterPortfolio("all");
+    setActiveButton("filter-all");
+  });
+
+  document.getElementById("filter-graphics").addEventListener("click", () => {
+    filterPortfolio("graphics");
+    setActiveButton("filter-graphics");
+  });
+
+  document.getElementById("filter-videos").addEventListener("click", () => {
+    filterPortfolio("videos");
+    setActiveButton("filter-videos");
+  });
+</script>
 
     
 
