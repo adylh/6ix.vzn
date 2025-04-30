@@ -117,17 +117,39 @@
     <div class="container">
       <div class="row g-4 justify-content-center">
         <div class="col-md-4 portfolio-item" data-category="graphics">
-          <img src="skarz-snowdonia.png" class="img-fluid rounded" alt="Portfolio 1">
+          <img src="lumo-thumbnail.png" class="img-fluid rounded" alt="Portfolio 1">
+            <div class="container-body pt-1">
+              <a href="https://www.youtube.com/watch?v=cWfxvwDr6y0" target="_blank"><h6 class="card-title">WHOSLUMO</a></h6>
+              <p class="card-text">Everything was fine until it wasn’t 💀</p>
+            </div>
         </div>
         <div class="col-md-4 portfolio-item" data-category="graphics">
           <img src="take2.png" class="img-fluid rounded" alt="Portfolio 2">
+            <a href="https://open.spotify.com/artist/2c2jDiFhMITH4C24SUdsNp?si=jBasAyAdSiGPSnBGXtInIw" target="_blank"><h6 class="card-title fw-bold pt-6">MakzMakez</a></h6>
+            <p class="card-text pt-2">Pending text to insert here</p>
         </div>
         <br>
         <div class="col-md-4 portfolio-item" data-category="videos">
-          <video src="skarz.mp4" class="img-fluid rounded" autoplay controls></video>
+          <video src="skarz.mp4" class="img-fluid rounded" autoplay muted loop alt="Portfolio 3"></video>
+            <div class="container-body pt-1">
+              <a href="https://www.youtube.com/watch?v=NVPVqghh85s" target="_blank"><h6 class="card-title">SKARZ</a></h6>
+              <p class="card-text">Vibes like these >>></p>
+            </div>
+        </div>
+        <div class="col-md-4 portfolio-item" data-category="videos">
+          <video src="snowdonia.mp4" class="img-fluid rounded" autoplay muted loop alt="Portfolio 4"></video>
+            <a href="https://www.youtube.com/watch?v=OpdhQ5PNgW4&t=160s" target="_blank"><h6 class="card-title">SNOWDONIA</a></h6>
+            <p class="card-text">Behind The Scenes of Shooting 'Hustlers'</p>
         </div>
         <div class="col-md-4 portfolio-item" data-category="graphics">
-          <img src="pd-white-5.png" class="img-fluid rounded" alt="Portfolio 4">
+          <img src="pd-4.png" class="img-fluid rounded" alt="Portfolio 5">
+            <a href="https://open.spotify.com/artist/2c2jDiFhMITH4C24SUdsNp?si=jBasAyAdSiGPSnBGXtInIw" target="_blank"><h6 class="card-title pt-4">PD</a></h6>
+            <p class="card-text">Logo for an upcoming artist</p>
+        </div>
+        <div class="col-md-4 portfolio-item" data-category="videos">
+          <video src="dee.mp4" class="img-fluid rounded" autoplay muted loop alt="Portfolio 6"></video>
+            <a href="https://www.youtube.com/watch?v=e3HR_pPU8sY&t=333s" target="_blank"><h6 class="card-title">'I BOUGHT MY FIRST CAR AT 21! REVEAL'</a></h6>
+            <p class="card-text">A short film about</p>
         </div>
       </div>
     </div>
@@ -176,6 +198,45 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <section class="py-5 bg-black text-white text-center" id="reviews">
+    <h2 class="fw-bold">What Our Clients Say</h2>
+    <div class="container mt-4">
+      <h4 class="fw-bold mb-3">Leave a Review</h4>
+      <form id="review-form" class="text-start">
+        <div class="mb-3">
+          <label for="reviewer-name" class="form-label">Name</label>
+          <input type="text" class="form-control bg-dark text-white" id="reviewer-name" required>
+        </div>
+        <div class="mb-3">
+          <label for="review-message" class="form-label">Message</label>
+          <textarea class="form-control bg-dark text-white" id="review-message" rows="3" required></textarea>
+          <div class="mb-3">
+            <label class="form-label d-block">Rating</label>
+            <div id="star-rating" class="text-warning fs-4">
+              <i class="fa-regular fa-star" data-value="1"></i>
+              <i class="fa-regular fa-star" data-value="2"></i>
+              <i class="fa-regular fa-star" data-value="3"></i>
+              <i class="fa-regular fa-star" data-value="4"></i>
+              <i class="fa-regular fa-star" data-value="5"></i>
+            </div>
+            <input type="hidden" id="review-rating" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+        <div id="form-alert" class="mt-2 text-success d-none">Review submitted!</div>
+      </form>
+    </div>
+    <!-- Loading spinner above reviews container -->
+    <div id="loading-spinner" class="text-center mt-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div id="reviews-container" class="container mt-4"></div>
+  </section>
+  
+
   <!-- Footer Start -->
     <footer class="bg-dark text-white text-center pt-3 pb-1" container-fluid>
         <ul class="list-inline mb-2">
@@ -203,6 +264,103 @@
             </li>
         </ul>
     </footer>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    
+      const firebaseConfig = {
+        apiKey: "AIzaSyCZxFIau7VNzdGsyadPeaCBfGhcIvZtFaU",
+        authDomain: "reviews-66e66.firebaseapp.com",
+        projectId: "reviews-66e66",
+        storageBucket: "reviews-66e66.firebasestorage.app",
+        messagingSenderId: "99874491693",
+        appId: "1:99874491693:web:2cda142da3390b76b657a4",
+        measurementId: "G-TLV2QWLHF9"
+      };
+    
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+    
+      const reviewsContainer = document.getElementById("reviews-container");
+    
+      function renderReview(review) {
+        const div = document.createElement("div");
+        div.className = "mb-3 p-3 bg-dark rounded shadow-sm text-white text-start";
+        const stars = Array(5).fill(0).map((_, i) => {
+          return `<i class="fa-star ${i < review.rating ? 'fa-solid text-warning' : 'fa-regular'}"></i>`;
+        }).join("");
+
+        div.innerHTML = `
+          <h5 class="fw-bold">${review.name}</h5>
+          <div class="mb-2">${stars}</div>
+          <p>${review.message}</p>
+        `;
+        reviewsContainer.appendChild(div);
+      }
+    
+      async function loadReviews() {
+        document.getElementById("loading-spinner").style.display = "block";
+        const querySnapshot = await getDocs(collection(db, "reviews"));
+        querySnapshot.forEach(doc => {
+          renderReview(doc.data());
+        });
+        document.getElementById("loading-spinner").style.display = "none";
+      }
+
+      loadReviews();
+
+      // Star rating logic
+      const stars = document.querySelectorAll("#star-rating i");
+      const ratingInput = document.getElementById("review-rating");
+
+      stars.forEach(star => {
+        star.addEventListener("click", () => {
+          const rating = star.getAttribute("data-value");
+          ratingInput.value = rating;
+          highlightStars(rating);
+        });
+      });
+
+      function highlightStars(rating) {
+        stars.forEach(star => {
+          const starVal = star.getAttribute("data-value");
+          if (starVal <= rating) {
+            star.classList.remove("fa-regular");
+            star.classList.add("fa-solid");
+          } else {
+            star.classList.add("fa-regular");
+            star.classList.remove("fa-solid");
+          }
+        });
+      }
+
+      // Review form submission
+      import { addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      const reviewForm = document.getElementById("review-form");
+      const alertBox = document.getElementById("form-alert");
+
+      reviewForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("reviewer-name").value.trim();
+        const message = document.getElementById("review-message").value.trim();
+        const rating = parseInt(document.getElementById("review-rating").value, 10);
+
+        if (name && message) {
+          try {
+            await addDoc(collection(db, "reviews"), { name, message, rating });
+            alertBox.classList.remove("d-none");
+            reviewForm.reset();
+            reviewsContainer.innerHTML = ""; // Refresh reviews list
+            loadReviews();
+          } catch (err) {
+            alert("Failed to submit review. Please try again.");
+            console.error(err);
+          }
+        }
+      });
+    </script>
 
 
 </body>
