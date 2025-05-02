@@ -288,7 +288,7 @@
     
       function renderReview(review) {
         const div = document.createElement("div");
-        div.className = "mb-3 p-3 bg-dark rounded shadow-sm text-white text-start";
+        div.className = "mb-3 p-4 bg-dark rounded-3 shadow text-white text-start border border-secondary";
         const stars = Array(5).fill(0).map((_, i) => {
           return `<i class="fa-star ${i < review.rating ? 'fa-solid text-warning' : 'fa-regular'}"></i>`;
         }).join("");
@@ -297,6 +297,9 @@
           <h5 class="fw-bold">${review.name}</h5>
           <div class="mb-2">${stars}</div>
           <p>${review.message}</p>
+          <p class="text-white small mt-2">
+            ${review.timestamp?.seconds ? new Date(review.timestamp.seconds * 1000).toLocaleDateString('en-GB') : ''}
+          </p>
         `;
         reviewsContainer.appendChild(div);
       }
@@ -339,6 +342,7 @@
 
       // Review form submission
       import { addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+      import { serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
       const reviewForm = document.getElementById("review-form");
       const alertBox = document.getElementById("form-alert");
@@ -351,7 +355,12 @@
 
         if (name && message) {
           try {
-            await addDoc(collection(db, "reviews"), { name, message, rating });
+            await addDoc(collection(db, "reviews"), {
+              name,
+              message,
+              rating,
+              timestamp: serverTimestamp()
+            });
             alertBox.classList.remove("d-none");
             reviewForm.reset();
             reviewsContainer.innerHTML = ""; // Refresh reviews list

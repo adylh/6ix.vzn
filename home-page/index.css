@@ -11,8 +11,6 @@ body {
 
 
 
-}
-
 .portfolio-item {
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
@@ -23,3 +21,20 @@ body {
     pointer-events: none;
     position: absolute; /* keeps layout tidy while hidden */
   }
+
+  #star-rating i {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 1.5rem;
+  }
+
+  #star-rating i {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 1.5rem;
+  }
+
+
+
+  
+}
