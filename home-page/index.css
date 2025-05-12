@@ -34,6 +34,19 @@ body {
     font-size: 1.5rem;
   }
 
+  .video-container {
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+  }
+  
+  .portfolio-video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
 
 
   

@@ -132,7 +132,15 @@
         </div>
         <br>
         <div class="col-md-4 portfolio-item" data-category="videos">
-          <video src="skarz.mp4" class="img-fluid rounded" autoplay muted loop alt="Portfolio 3"></video>
+          <div class="video-container">
+            <video
+              src="skarz.mp4"
+              class="portfolio-video"
+              muted
+              preload="none"
+              poster="First place.jpg"
+            ></video>
+          </div>
             <div class="container-body pt-1">
               <a href="https://www.youtube.com/watch?v=NVPVqghh85s" target="_blank"><h6 class="card-title">SKARZ</a></h6>
               <p class="card-text">Vibes like these >>></p>
@@ -156,6 +164,25 @@
       </div>
     </div>
   </section>
+
+  <!-- This is the script for the hover effect -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const videos = document.querySelectorAll(".portfolio-video");
+  
+      videos.forEach(video => {
+        video.addEventListener("mouseenter", () => {
+          video.play();
+        });
+  
+        video.addEventListener("mouseleave", () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+    });
+  </script>
 <!-- this script is to filter the buttons so that when graphics is selected, only graphics show and same with videos. -->
   <script>
   const filterButtons = document.querySelectorAll("button[id^='filter']");
