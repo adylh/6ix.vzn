@@ -54,7 +54,8 @@ body {
     border-radius: 0.5rem;
   }
   
-  .portfolio-hover-wrapper img {
+  .portfolio-hover-wrapper img,
+  .portfolio-hover-wrapper video {
     display: block;
     width: 100%;
     transition: 0.5s ease;
@@ -78,7 +79,8 @@ body {
     padding: 1rem;
   }
   
-  .portfolio-hover-wrapper:hover img {
+  .portfolio-hover-wrapper:hover img,
+  .portfolio-hover-wrapper:hover video {
     transform: scale(1.05);
     filter: brightness(60%);
   }
