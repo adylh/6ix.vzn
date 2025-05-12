@@ -165,24 +165,6 @@
     </div>
   </section>
 
-  <!-- This is the script for the hover effect -->
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const videos = document.querySelectorAll(".portfolio-video");
-  
-      videos.forEach(video => {
-        video.addEventListener("mouseenter", () => {
-          video.play();
-        });
-  
-        video.addEventListener("mouseleave", () => {
-          video.pause();
-          video.currentTime = 0;
-        });
-      });
-    });
-  </script>
 <!-- this script is to filter the buttons so that when graphics is selected, only graphics show and same with videos. -->
   <script>
   const filterButtons = document.querySelectorAll("button[id^='filter']");
