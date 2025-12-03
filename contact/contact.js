@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const service = document.getElementById('service').value;
-        const budget = document.getElementById('budget').value;
+        const ready = document.querySelector('input[name="ready"]:checked')?.value;
+        const termsAccepted = document.getElementById('termsCheck').checked;
         const message = document.getElementById('message').value;
         
         // Validate form
-        if (!name || !email || !message) {
+        if (!name || !email || !message || !ready || !termsAccepted) {
             showMessage('Please fill in all required fields.', 'danger');
             return;
         }
@@ -32,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             name,
             email,
             service,
-            budget,
+            ready,
+            termsAccepted,
             message,
             timestamp: new Date().toISOString()
         };
