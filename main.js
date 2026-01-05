@@ -1,86 +1,327 @@
-// Main JavaScript File
+/**
+ * ============================================
+ * 6ix vzn - Custom JavaScript
+ * Vanilla JS only, no frameworks
+ * ============================================
+ */
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+// ============================================
+// DOCUMENT READY
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    initNavbar();
+    initSmoothScroll();
+    initScrollAnimations();
+    initContactForm();
+});
+
+// ============================================
+// NAVBAR FUNCTIONALITY
+// ============================================
+
+/**
+ * Initialize navbar scroll behavior
+ * Adds 'scrolled' class when page is scrolled
+ */
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    
+    // Check scroll position on load
+    handleNavbarScroll(navbar);
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', function() {
+        handleNavbarScroll(navbar);
     });
-});
-
-// Navbar scroll effect
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-    }
+    // Close mobile menu when link is clicked
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navbarCollapse = document.getElementById('navbarNav');
     
-    lastScroll = currentScroll;
-});
-
-// Active navigation link highlighting
-const currentLocation = window.location.pathname.split('/').pop() || 'index.html';
-const navLinks = document.querySelectorAll('.nav-link');
-
-navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentLocation || (currentLocation === '' && href === 'index.html')) {
-        link.classList.add('active');
-    } else {
-        link.classList.remove('active');
-    }
-});
-
-// Close mobile navbar on link click
-const navbarCollapse = document.querySelector('.navbar-collapse');
-const navbarToggler = document.querySelector('.navbar-toggler');
-
-if (navbarCollapse && navbarToggler) {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Check if mobile menu is open
             if (navbarCollapse.classList.contains('show')) {
-                navbarToggler.click();
+                // Get Bootstrap collapse instance and hide it
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
             }
         });
     });
 }
 
-// Animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+/**
+ * Handle navbar appearance based on scroll position
+ * @param {HTMLElement} navbar - The navbar element
+ */
+function handleNavbarScroll(navbar) {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// ============================================
+// SMOOTH SCROLL
+// ============================================
+
+/**
+ * Initialize smooth scrolling for anchor links
+ */
+function initSmoothScroll() {
+    // Get all links with hash
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            // Get the target section
+            const targetId = this.getAttribute('href');
+            
+            // Skip if it's just "#"
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                
+                // Calculate offset for fixed navbar
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+                
+                // Smooth scroll to target
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ============================================
+// SCROLL ANIMATIONS
+// ============================================
+
+/**
+ * Initialize fade-in animations on scroll
+ * Uses Intersection Observer API for performance
+ */
+function initScrollAnimations() {
+    // Get all elements with fade-in-scroll class
+    const fadeElements = document.querySelectorAll('.fade-in-scroll');
+    
+    // Check if Intersection Observer is supported
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            root: null,           // Use viewport as root
+            rootMargin: '0px',    // No margin
+            threshold: 0.1        // Trigger when 10% visible
+        };
+        
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    // Add visible class with a slight delay for staggered effect
+                    setTimeout(function() {
+                        entry.target.classList.add('visible');
+                    }, 100);
+                    
+                    // Stop observing this element
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe each element
+        fadeElements.forEach(function(element) {
+            observer.observe(element);
+        });
+    } else {
+        // Fallback for older browsers - just show all elements
+        fadeElements.forEach(function(element) {
+            element.classList.add('visible');
+        });
+    }
+}
+
+// ============================================
+// CONTACT FORM
+// ============================================
+
+/**
+ * Initialize contact form validation and submission
+ */
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form fields
+        const nameField = document.getElementById('name');
+        const emailField = document.getElementById('email');
+        const messageField = document.getElementById('message');
+        const enquiryTypeField = document.getElementById('enquiryType');
+        
+        // Reset validation states
+        resetValidation([nameField, emailField, messageField, enquiryTypeField]);
+        
+        // Validate form
+        let isValid = true;
+        
+        // Validate name
+        if (!validateRequired(nameField)) {
+            isValid = false;
+        }
+        
+        // Validate email
+        if (!validateEmail(emailField)) {
+            isValid = false;
+        }
+        
+        // Validate message
+        if (!validateRequired(messageField)) {
+            isValid = false;
+        }
+        
+        // Validate enquiry type
+        if (!validateRequired(enquiryTypeField)) {
+            isValid = false;
+        }
+        
+        // If form is valid, show success message
+        if (isValid) {
+            // In a real implementation, you would send data to a server here
+            // For now, we'll just show the success message
+            
+            // Hide form
+            form.style.display = 'none';
+            
+            // Show success message
+            formSuccess.style.display = 'block';
+            
+            // Optional: Scroll to success message
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Log form data (for demonstration)
+            console.log('Form submitted:', {
+                name: nameField.value.trim(),
+                email: emailField.value.trim(),
+                message: messageField.value.trim(),
+                enquiryType: enquiryTypeField.value.trim()
+            });
         }
     });
-}, observerOptions);
+}
 
-// Observe all cards and sections
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.card, .service-card, .pricing-card');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+/**
+ * Reset validation states for given fields
+ * @param {Array} fields - Array of form field elements
+ */
+function resetValidation(fields) {
+    fields.forEach(field => {
+        if (field) { // Only proceed if the field exists
+            field.classList.remove('is-valid');
+            field.classList.remove('is-invalid');
+        }
     });
-});
+}
+
+/**
+ * Validate required field
+ * @param {HTMLElement} field - The form field to validate
+ * @returns {boolean} - Whether the field is valid
+ */
+function validateRequired(field) {
+    const value = field.value.trim();
+    
+    if (value === '') {
+        field.classList.add('is-invalid');
+        return false;
+    }
+    
+    return true;
+}
+
+/**
+ * Validate email field
+ * @param {HTMLElement} field - The email field to validate
+ * @returns {boolean} - Whether the email is valid
+ */
+function validateEmail(field) {
+    const value = field.value.trim();
+    
+    // Check if empty
+    if (value === '') {
+        field.classList.add('is-invalid');
+        return false;
+    }
+    
+    // Check email format using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!emailRegex.test(value)) {
+        field.classList.add('is-invalid');
+        return false;
+    }
+    
+    return true;
+}
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+/**
+ * Debounce function to limit how often a function can be called
+ * @param {Function} func - The function to debounce
+ * @param {number} wait - The wait time in milliseconds
+ * @returns {Function} - The debounced function
+ */
+function debounce(func, wait) {
+    let timeout;
+    
+    return function executedFunction() {
+        const context = this;
+        const args = arguments;
+        
+        const later = function() {
+            timeout = null;
+            func.apply(context, args);
+        };
+        
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
+ * Throttle function to limit function calls to a fixed rate
+ * @param {Function} func - The function to throttle
+ * @param {number} limit - The time limit in milliseconds
+ * @returns {Function} - The throttled function
+ */
+function throttle(func, limit) {
+    let inThrottle;
+    
+    return function() {
+        const context = this;
+        const args = arguments;
+        
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            
+            setTimeout(function() {
+                inThrottle = false;
+            }, limit);
+        }
+    };
+}

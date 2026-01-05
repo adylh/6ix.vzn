@@ -3,342 +3,835 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Enhanced SEO Metadata -->
-    <meta name="description" content="6IX VZN - Professional graphic design and video editing services. Specializing in YouTube thumbnails, cover art, TikTok content, Instagram marketing visuals, and branding solutions.">
-    <meta name="keywords" content="graphic design, video editing, thumbnails, cover art, marketing visuals, TikTok editing, Instagram content, YouTube thumbnails, professional design services">
-    <meta name="author" content="6IX VZN">
-    <meta http-equiv="Content-Language" content="en">
-
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="6IX VZN - Professional Graphic Design & Video Editing Services">
-    <meta property="og:description" content="Premium graphic design and video editing for creators, artists and businesses. Thumbnails, cover and album artwork, Tiktok edits and promotional visuals">
-    <meta property="og:image" content="https://6ixvzn.com/images/social-preview.png">
-    <meta property="og:url" content="https://6ixvzn.com">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Metadata -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Premium graphic design and video editing for creators, artists and businesses. Thumbnails, cover and album artwork, Tiktok edits and promotional visuals">
-    <meta name="twitter:description" content="Premium design and editing services for creators and businesses.">
-    <meta name="twitter:image" content="https://6ixvzn.com/images/social-preview.png">
-
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://6ixvzn.com/">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <title>6IX VZN — Graphic Design & Video Editing Services</title>
+    <meta name="description" content="6ix vzn - Professional Graphic Design & Video Editing Services. Creating visuals that speak louder.">
+    <title>6ix vzn | Graphic Design & Video Editing</title>
     
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation - replace the creative studio bit into my 6V logo -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <img src="/images/Logo.png" alt="6IX VZN Logo" height="40">
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="#hero">
+                <span class="brand-text">6ix vzn</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- Navigation Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio/portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services/services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pricing/pricing.html">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact/contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#work">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="#contact">Get In Touch</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-3 fw-bold mb-4 animate-fade-in">
-                Design That <span class="text-accent">Transforms</span>
-            </h1>
-            <p class="lead text-muted mb-5 animate-fade-in">
-                Professional graphic design and video editing services that elevate your brand and captivate your audience.
-            </p>
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center animate-slide-up">
-                <a href="portfolio/portfolio.html" class="btn btn-accent btn-lg">View Portfolio</a>
-                <a href="contact/contact.html" class="btn btn-outline-light btn-lg">Get Started</a>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-7">
+                    <!-- Section Label -->
+                    <div class="section-label fade-in">
+                        <span>00/01</span>
+                        <span class="label-text">Creative Studio</span>
+                    </div>
+                    
+                    <!-- Main Headline -->
+                    <h1 class="hero-title fade-in fade-in-delay-1">
+                        Designing Visuals<br>
+                        That Speak<br>
+                        <span class="text-accent">Louder.</span>
+                    </h1>
+                    
+                    <!-- Subheading -->
+                    <p class="hero-subtitle fade-in fade-in-delay-2">
+                        Creating engaging visuals and clean video edits for content creators and small businesses who want their content to stand out on social media and YouTube.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="hero-cta fade-in fade-in-delay-3">
+                        <a href="#work" class="btn btn-primary btn-lg">
+                            View Work
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline-dark btn-lg">
+                            Get In Touch
+                        </a>
+                    </div>
+                    
+                    <!-- Services List -->
+                    <div class="hero-services fade-in fade-in-delay-4">
+                        <span>Branding</span>
+                        <span>Video Editing</span>
+                        <span>Social Media</span>
+                        <span>Cover Art</span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 d-none d-lg-block">
+                    <!-- Hero Visual -->
+                    <div class="hero-visual fade-in fade-in-delay-2">
+                        <div class="visual-card visual-card-1">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=800&fit=crop" alt="Abstract Design">
+                        </div>
+                        <div class="visual-card visual-card-2">
+                            <img src="https://images.unsplash.com/photo-1633174524827-db00a6b7bc74?w=400&h=300&fit=crop" alt="Creative Work">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Label -->
+                    <div class="section-label fade-in-scroll">
+                        <span>00/02</span>
+                        <span class="label-text">About Us</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title fade-in-scroll">
+                        More than a<br>
+                        design studio.
+                    </h2>
+                </div>
+                <div class="col-lg-6">
+                    <p class="about-text fade-in-scroll">
+                        At <strong>6ix vzn</strong>, we specialise in creating visuals and video edits that support modern content. Our work focuses on helping creators and small businesses communicate clearly, consistently, and creatively across digital platforms.
+                    </p>
+                    <p class="about-text fade-in-scroll">
+                        From social media graphics to video editing and cover art, every project is approached with intention, creativity, and attention to detail. We focus on execution that complements the content — not overcomplication.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="row stats-row">
+                <div class="col-md-4">
+                    <div class="stat-card fade-in-scroll">
+                        <span class="stat-number">95%</span>
+                        <p class="stat-text">Client satisfaction rate across all projects delivered</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card fade-in-scroll">
+                        <span class="stat-number">30+</span>
+                        <p class="stat-text">Successful projects completed for brands and creators.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card fade-in-scroll">
+                        <span class="stat-number">3+</span>
+                        <p class="stat-text">Years of creative and strategic design experience</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Section - either remove this section entirely or create a video that i can put here
-    <section class="py-5 bg-secondary-subtle">
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section id="services" class="services-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="ratio ratio-16x9 rounded shadow-lg">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                title="Introduction Video" 
-                                allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Label -->
+                    <div class="section-label fade-in-scroll">
+                        <span>00/03</span>
+                        <span class="label-text">Services</span>
                     </div>
-                    <p class="text-center mt-4 text-muted">
-                        Watch our introduction to see how we bring creative visions to life
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title fade-in-scroll">
+                        What we do best.
+                    </h2>
+                    <p class="section-subtitle fade-in-scroll">
+                        Content-focused design and video services built to support modern creators and growing businesses.
+                    </p>
+                </div>
+                <div class="col-lg-4 d-flex align-items-end justify-content-lg-end">
+                    <a href="#contact" class="btn btn-primary fade-in-scroll">
+                        Start Your Project
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Service Cards -->
+            <div class="row g-4">
+                <!-- Service 01: Social Media Graphics -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card fade-in-scroll">
+                        <div class="service-number">01</div>
+                        <h3 class="service-title">Social Media Graphics</h3>
+                        <p class="service-description">
+                            Clean, engaging graphics designed for consistent posting across social platforms.
+                        </p>
+                        <ul class="service-list">
+                            <li>Instagram Posts & Carousels</li>
+                            <li>Story Designs</li>
+                            <li>Promotional Graphics</li>
+                            <li>Content-Based Visuals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 02: YouTube Thumbnail Design -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card fade-in-scroll">
+                        <div class="service-number">02</div>
+                        <h3 class="service-title">YouTube Thumbnail Design</h3>
+                        <p class="service-description">
+                            High-impact thumbnails designed to capture attention and improve click-through rates.
+                        </p>
+                        <ul class="service-list">
+                            <li>Custom Thumbnails</li>
+                            <li>Series Consistency</li>
+                            <li>Optimised for Small Screens</li>
+                            <li>Fast Turnaround</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 03: Cover Art & Digital Artwork -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card fade-in-scroll">
+                        <div class="service-number">03</div>
+                        <h3 class="service-title">Cover Art & Digital Artwork</h3>
+                        <p class="service-description">
+                            Creative visuals for artists, podcasters, and digital releases.
+                        </p>
+                        <ul class="service-list">
+                            <li>Album & Single Cover Art</li>
+                            <li>Podcast Artwork</li>
+                            <li>Platform-Ready Designs</li>
+                            <li>Creative Concepts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 04: Short-Form Video Editing -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card fade-in-scroll">
+                        <div class="service-number">04</div>
+                        <h3 class="service-title">Short-Form Video Editing</h3>
+                        <p class="service-description">
+                            Engaging edits designed for fast-paced platforms and audience retention.
+                        </p>
+                        <ul class="service-list">
+                            <li>Instagram Reels</li>
+                            <li>TikTok Videos</li>
+                            <li>YouTube Shorts</li>
+                            <li>Captions & Pacing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 05: Long-Form Video Editing -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card fade-in-scroll">
+                        <div class="service-number">05</div>
+                        <h3 class="service-title">Long-Form Video Editing</h3>
+                        <p class="service-description">
+                            Structured, polished edits for longer-form content.
+                        </p>
+                        <ul class="service-list">
+                            <li>YouTube Videos</li>
+                            <li>Podcast Editing</li>
+                            <li>Jump Cuts & Flow</li>
+                            <li>Clean Visual Enhancements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 06: Flyers & Event Graphics -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card fade-in-scroll">
+                        <div class="service-number">06</div>
+                        <h3 class="service-title">Flyers & Event Graphics</h3>
+                        <p class="service-description">
+                            Promotional designs for events, announcements, and community projects.
+                        </p>
+                        <ul class="service-list">
+                            <li>Church & Community Flyers</li>
+                            <li>Event Promotions</li>
+                            <li>Announcement Graphics</li>
+                            <li>Print & Digital Formats</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PORTFOLIO / WORK SECTION
+         ============================================ -->
+    <section id="work" class="work-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Label -->
+                    <div class="section-label fade-in-scroll">
+                        <span>00/04</span>
+                        <span class="label-text">Portfolio</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title fade-in-scroll">
+                        Selected Work.
+                    </h2>
+                    <p class="section-subtitle fade-in-scroll">
+                        A showcase of projects that define our creative vision.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item fade-in-scroll" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                        <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=700&fit=crop" alt="Brand Identity Project">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Branding</span>
+                            <h4 class="portfolio-title">Luxe Brand Identity</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item fade-in-scroll" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=700&fit=crop" alt="Social Media Campaign">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Social Media</span>
+                            <h4 class="portfolio-title">Neon Nights Campaign</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item fade-in-scroll" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=700&fit=crop" alt="Album Cover Art">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Cover Art</span>
+                            <h4 class="portfolio-title">Eclipse Album Art</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item fade-in-scroll" data-bs-toggle="modal" data-bs-target="#projectModal4">
+                        <img src="https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=600&h=700&fit=crop" alt="Video Production">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Video</span>
+                            <h4 class="portfolio-title">Motion Reel 2024</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item fade-in-scroll" data-bs-toggle="modal" data-bs-target="#projectModal5">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=700&fit=crop" alt="Poster Design">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Print</span>
+                            <h4 class="portfolio-title">Event Poster Series</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item fade-in-scroll" data-bs-toggle="modal" data-bs-target="#projectModal6">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=700&fit=crop" alt="Digital Art">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Digital Art</span>
+                            <h4 class="portfolio-title">Abstract Visions</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS SECTION
+         ============================================ -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Label -->
+                    <div class="section-label fade-in-scroll">
+                        <span>00/05</span>
+                        <span class="label-text">Testimonials</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title fade-in-scroll">
+                        What clients say.
+                    </h2>
+                </div>
+            </div>
+            
+            <!-- Testimonial Cards -->
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in-scroll">
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "6ix vzn transformed our brand identity completely. The attention to 
+                            detail and creative vision exceeded all expectations. Truly exceptional work."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JR</div>
+                            <div class="author-info">
+                                <h5>James Rodriguez</h5>
+                                <span>Founder, TechStart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in-scroll">
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The video editing quality is unmatched. They took our raw footage and 
+                            created something magical. Our engagement rates have never been higher."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info">
+                                <h5>Sarah Kim</h5>
+                                <span>Content Creator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in-scroll">
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The video editing quality is unmatched. They took our raw footage and 
+                            created something magical. Our engagement rates have never been higher."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info">
+                                <h5>Jamie Oliver<h5>
+                                <span>Chef</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card fade-in-scroll">
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Professional, creative, and incredibly responsive. 6ix vzn delivers 
+                            designs that not only look great but actually drive results."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <h5>Marcus Johnson</h5>
+                                <span>Marketing Director</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="cta-title fade-in-scroll">
+                        Ready to bring your<br>
+                        <span class="text-accent">vision to life?</span>
+                    </h2>
+                    <p class="cta-subtitle fade-in-scroll">
+                        Let’s create content that looks intentional and performs.
+                    </p>
+                    <a href="#contact" class="btn btn-primary btn-lg fade-in-scroll">
+                        Start Your Project
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Label -->
+                    <div class="section-label fade-in-scroll">
+                        <span>00/06</span>
+                        <span class="label-text">Contact</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-5">
+                    <h2 class="section-title fade-in-scroll">
+                        Get in touch.
+                    </h2>
+                    <p class="contact-text fade-in-scroll">
+                        Have a project in mind? Let's talk about how we can help bring your 
+                        vision to life. Fill out the form and we'll get back to you within 24 hours.
+                    </p>
+                    
+                    <!-- Contact Info -->
+                    <div class="contact-info fade-in-scroll">
+                        <div class="contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <span>contact@6ixvzn.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-instagram"></i>
+                            <span>@6ixvzn</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 offset-lg-1">
+                    <!-- Contact Form -->
+                    <form id="contactForm" class="contact-form fade-in-scroll" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="5e68b299-1247-4eee-a22d-fedfe0534777">
+                        <input type="hidden" name="subject" value="New Contact Form Submission - 6ix vzn">
+                        <input type="hidden" name="from_name" value="6ix vzn Website">
+                        <input type="checkbox" name="botcheck" class="d-none" style="display: none;">
+                        <div class="mb-4">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="type" class="form-label">What are you enquiring about?</label>
+                            <select class="form-select" id="enquiryType" name="enquiryType" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Social Media Graphics">Social Media Graphics</option>
+                                <option value="YouTube Thumbnails">YouTube Thumbnail Design</option>
+                                <option value="Short-Form Video Editing">Short-Form Video Editing</option>
+                                <option value="Long-Form Video Editing">Long-Form Video Editing</option>
+                                <option value="Cover Art & Digital Artwork">Cover Art & Digital Artwork</option>
+                                <option value="Flyers & Event Graphics">Flyers & Event Graphics</option>
+                                <option value="Monthly Content Support">Monthly Content Support</option>
+                                <option value="Not Sure / Other">Not Sure / Other</option>
+                            </select>
+                            <div class="invalid-feedback">Please select an enquiry type.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message:</label><br> 
+                            <small class="form-text text-muted">Feel free to include any details or questions you have.</small>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                            <div class="invalid-feedback">Please enter your message.</div>
+                        </div>
+
+                        <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you.html">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            Send Message
+                            <i class="bi bi-send ms-2"></i>
+                        </button>
+                        
+                    </form>
+                    
+                    <!-- Success Message -->
+                    <div id="formSuccess" class="form-success" style="display: none;">
+                        <i class="bi bi-check-circle"></i>
+                        <h4>Message Sent!</h4>
+                        <p>Thank you for reaching out. We'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <a href="#hero" class="footer-brand">6ix vzn</a>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="footer-links">
+                        <a href="pricing.html">Pricing</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="privacy.html">Privacy</a>
+                    </div>
+                    <div class="footer-social mt-3">
+                        <a href="https://www.instagram.com/6ix.vzn/" target="_blank" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="mailto:contact@6ixvzn.com" aria-label="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- <div class="col-md-4 text-md-end">
+                    <p class="footer-copyright">
+                        © 2024 6ix vzn. All rights reserved.
+                    </p>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         PROJECT MODALS
+         ============================================ -->
+    
+    <!-- Modal 1 -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-category">Branding</span>
+                        <h5 class="modal-title" id="projectModal1Label">Luxe Brand Identity</h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1200&h=800&fit=crop" alt="Luxe Brand Identity" class="modal-image">
+                    <p class="modal-description">
+                        A comprehensive brand identity project for a luxury fashion startup. 
+                        We developed a complete visual system including logo design, typography, 
+                        color palette, and brand guidelines that communicate sophistication and modernity.
                     </p>
                 </div>
             </div>
         </div>
-    </section> -->
-
-    <!-- Featured Work -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Featured Work</h2>
-                <p class="lead text-muted">
-                    A glimpse into our recent projects showcasing design excellence and creative innovation
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card portfolio-card h-100">
-                        <div id="brandIdentityCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/images/Iye design 1.png" class="d-block w-100" alt="Marketing Post 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/images/Iye design 2.png" class="d-block w-100" alt="Marketing Post 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/images/iye design 3.png" class="d-block w-100" alt="marketing Post 3">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#brandIdentityCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#brandIdentityCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <span class="badge bg-accent mb-2">Marketing Visuals</span>
-                            <h5 class="card-title text-white">MatchaMe</h5>
-                            <p class="card-text text-muted">Complete brand identity package including logo, color palette, and brand guidelines.</p>
-                        </div>
+    </div>
+    
+    <!-- Modal 2 -->
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-labelledby="projectModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-category">Social Media</span>
+                        <h5 class="modal-title" id="projectModal2Label">Neon Nights Campaign</h5>
                     </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card portfolio-card h-100">
-                        <div id="graphicDesignCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="/images/buy 'n' sell.png" class="d-block w-100" alt="Cover art 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/images/Which one.png" class="d-block w-100" alt="Cover art 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/images/Dalanda maintenance vlog thumbnail.png" class="d-block w-100" alt="YouTube Thumbnail 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="/images/thumbnail 2 - lumo thumbnail.png" class="d-block w-100" alt="YouTube Thumbnail 2">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#graphicDesignCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#graphicDesignCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <span class="badge bg-accent mb-2">Graphic Design</span>
-                            <h5 class="card-title text-white">Thumbnail and Cover Art</h5>
-                            <p class="card-text text-muted">Eye-catching thumbnail designs optimized for maximum click-through rates.</p>
-                        </div>
-                    </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop" alt="Neon Nights Campaign" class="modal-image">
+                    <p class="modal-description">
+                        A vibrant social media campaign designed to increase engagement and brand awareness. 
+                        The neon-inspired visuals drove a 340% increase in social engagement over 3 months.
+                    </p>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card portfolio-card h-100">
-                        <div id="videoEditingCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/e3HR_pPU8sY"
-                                                title="Product Promo Video"
-                                                frameborder="0"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/tfb1YZBMLhw"
-                                                title="Product Promo Video 2"
-                                                frameborder="0"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/NVPVqghh85s"
-                                                title="Product Promo Video 3"
-                                                frameborder="0"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/UBQ54zuQOpY"
-                                                title="Product Promo Video 4"
-                                                frameborder="0"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#videoEditingCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#videoEditingCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <span class="badge bg-accent mb-2">Video Editing</span>
-                            <h5 class="card-title text-white">Product Promo Video</h5>
-                            <p class="card-text text-muted">Dynamic product showcase with smooth transitions and engaging visuals.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="portfolio/portfolio.html" class="btn btn-outline-accent btn-lg">View Full Portfolio</a>
             </div>
         </div>
-    </section>
-
-    <!-- Services Highlight -->
-    <section class="py-5 bg-secondary-subtle">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">What We Offer</h2>
-                <p class="lead text-muted">
-                    Comprehensive creative services tailored to your needs
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card service-card text-center h-100">
-                        <div class="card-body">
-                            <i class="bi bi-image service-icon"></i>
-                            <h5 class="card-title mt-3 text-white">Thumbnail Design</h5>
-                            <p class="card-text text-muted">Eye-catching thumbnails that boost clicks and engagement.</p>
-                            <p class="fw-bold text-accent">Starting from £35</p>
-                        </div>
+    </div>
+    
+    <!-- Modal 3 -->
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-labelledby="projectModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-category">Cover Art</span>
+                        <h5 class="modal-title" id="projectModal3Label">Eclipse Album Art</h5>
                     </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card service-card text-center h-100">
-                        <div class="card-body">
-                            <i class="bi bi-palette service-icon"></i>
-                            <h5 class="card-title mt-3 text-white">Cover & Album Artwork</h5>
-                            <p class="card-text text-muted">Stunning artwork for your music releases and projects.</p>
-                            <p class="fw-bold text-accent">Starting from £40</p>
-                        </div>
-                    </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop" alt="Eclipse Album Art" class="modal-image">
+                    <p class="modal-description">
+                        Album artwork designed for an independent artist's debut EP. 
+                        The design captures the moody, atmospheric essence of the music 
+                        while standing out in digital streaming platforms.
+                    </p>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card service-card text-center h-100">
-                        <div class="card-body">
-                            <i class="bi bi-camera-video service-icon"></i>
-                            <h5 class="card-title mt-3 text-white">Video Editing</h5>
-                            <p class="card-text text-muted">Professional editing for both short and long-form content.</p>
-                            <p class="fw-bold text-accent">Short form tarting from £20</p>
-                            <p class="fw-bold text-accent">Long form starting from £60</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card service-card text-center h-100">
-                        <div class="card-body">
-                            <i class="bi bi-graph-up service-icon"></i>
-                            <h5 class="card-title mt-3 text-white">Marketing Visuals</h5>
-                            <p class="card-text text-muted">Campaign visuals designed to convert and captivate.</p>
-                            <p class="fw-bold text-accent">Starting from £35</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="services/services.html" class="btn btn-accent btn-lg">Explore All Services</a>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-5">
-        <div class="container text-center">
-            <h2 class="display-5 fw-bold mb-4">Ready to Bring Your Vision to Life?</h2>
-            <p class="lead text-muted mb-5">
-                Let's create something extraordinary together. Get in touch today for a free consultation.
-            </p>
-            <a href="contact/contact.html" class="btn btn-accent btn-lg">Start Your Project</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <h5 class="fw-bold mb-3">6ix Vzn</h5>
-                    <p class="text-muted">Professional graphic design and video editing services.</p>
-                    <div class="social-links">
-                        <a href="https://wa.me/4495604487" target="_blank" class="me-4"><i class="bi bi-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/6ix.vzn/" target="_blank" class="me-4"><i class="bi bi-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/adrian-leo-harding-a3b996269/" target="_blank" class="me-4"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://www.tiktok.com/@6ix.vzn?lang=en" target="_blank"><i class="bi bi-tiktok"></i></a>
+    </div>
+    
+    <!-- Modal 4 -->
+    <div class="modal fade" id="projectModal4" tabindex="-1" aria-labelledby="projectModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-category">Video</span>
+                        <h5 class="modal-title" id="projectModal4Label">Motion Reel 2024</h5>
                     </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-md-3 mb-4 mb-md-0">
-                    <h6 class="fw-bold mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="portfolio/portfolio.html" class="text-muted">Portfolio</a></li>
-                        <li><a href="services/services.html" class="text-muted">Services</a></li>
-                        <li><a href="pricing/pricing.html" class="text-muted">Pricing</a></li>
-                        <li><a href="contact/contact.html" class="text-muted">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h6 class="fw-bold mb-3">Legal</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="privacy/privacy.html" class="text-muted">Privacy Policy</a></li>
-                        <li><a href="terms/terms.html" class="text-muted">Terms & Conditions</a></li>
-                    </ul>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=1200&h=800&fit=crop" alt="Motion Reel 2024" class="modal-image">
+                    <p class="modal-description">
+                        A dynamic motion graphics reel showcasing our video editing and 
+                        animation capabilities. Features advanced transitions, kinetic typography, 
+                        and seamless visual effects.
+                    </p>
                 </div>
             </div>
-            <!-- <hr class="my-4">
-            <p class="text-center text-muted mb-0">&copy; 2025 6ix Vzn. All rights reserved.</p> -->
         </div>
-    </footer>
+    </div>
+    
+    <!-- Modal 5 -->
+    <div class="modal fade" id="projectModal5" tabindex="-1" aria-labelledby="projectModal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-category">Print</span>
+                        <h5 class="modal-title" id="projectModal5Label">Event Poster Series</h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop" alt="Event Poster Series" class="modal-image">
+                    <p class="modal-description">
+                        A series of event posters designed for a music festival. 
+                        Bold typography and striking visuals create instant recognition 
+                        and drive ticket sales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 6 -->
+    <div class="modal fade" id="projectModal6" tabindex="-1" aria-labelledby="projectModal6Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-category">Digital Art</span>
+                        <h5 class="modal-title" id="projectModal6Label">Abstract Visions</h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop" alt="Abstract Visions" class="modal-image">
+                    <p class="modal-description">
+                        A collection of digital artworks exploring color, form, and movement. 
+                        These pieces demonstrate our artistic range and attention to detail 
+                        in creating visually stunning compositions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Bootstrap JS -->
+    <!-- ============================================
+         SCRIPTS
+         ============================================ -->
+    
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="main.js"></script>
 </body>
 </html>

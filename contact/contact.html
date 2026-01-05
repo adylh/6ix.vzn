@@ -51,24 +51,23 @@
                         <input type="hidden" name="access_key" value="5e68b299-1247-4eee-a22d-fedfe0534777">
                         <input type="checkbox" name="botcheck" class="d-none">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name *</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="mb-3">
                             <label for="email" class="form-label">Email *</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="service" class="form-label">Service Interested In</label>
-                            <select class="form-select" id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="Thumbnail Design">Thumbnail Design</option>
-                                <option value="Cover/Album Artwork">Cover/Album Artwork</option>
-                                <option value="Short-Form Video">Short-Form Video Editing</option>
-                                <option value="Long-Form Video">Long-Form Video Editing</option>
-                                <option value="Marketing Campaign">Marketing Campaign Visuals</option>
-                                <option value="Other">Other</option>
+                        <div class="mb-4">
+                            <label for="enquiryType" class="form-label">What are you enquiring about?</label>
+                            <select class="form-select" id="enquiryType" name="enquiryType" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Social Media Graphics">Social Media Graphics</option>
+                                <option value="YouTube Thumbnails">YouTube Thumbnail Design</option>
+                                <option value="Short-Form Video Editing">Short-Form Video Editing</option>
+                                <option value="Long-Form Video Editing">Long-Form Video Editing</option>
+                                <option value="Cover Art & Digital Artwork">Cover Art & Digital Artwork</option>
+                                <option value="Flyers & Event Graphics">Flyers & Event Graphics</option>
+                                <option value="Monthly Content Support">Monthly Content Support</option>
+                                <option value="Not Sure / Other">Not Sure / Other</option>
                             </select>
+                            <div class="invalid-feedback">Please select an enquiry type.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Ready to Start?</label>
