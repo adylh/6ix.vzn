@@ -161,62 +161,67 @@ function initContactForm() {
     
     if (!form) return;
     
-    form.addEventListener('submit', function(e) {
+    // Handle contact preference change
+    const preferInstagram = document.getElementById('preferInstagram');
+    const preferEmail = document.getElementById('preferEmail');
+    const contactHandle = document.getElementById('contactHandle');
+    
+    if (preferInstagram && preferEmail && contactHandle) {
+        preferInstagram.addEventListener('change', function() {
+            if (this.checked) {
+                contactHandle.placeholder = '@yourhandle';
+            }
+        });
+        
+        preferEmail.addEventListener('change', function() {
+            if (this.checked) {
+                contactHandle.placeholder = 'your@email.com';
+            }
+        });
+    }
+    
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
-        // Get form fields
+    
         const nameField = document.getElementById('name');
-        const emailField = document.getElementById('email');
+        const serviceField = document.getElementById('service');
         const messageField = document.getElementById('message');
-        const enquiryTypeField = document.getElementById('enquiryType');
-        
-        // Reset validation states
-        resetValidation([nameField, emailField, messageField, enquiryTypeField]);
-        
-        // Validate form
+        const contactHandleField = document.getElementById('contactHandle');
+    
+        resetValidation([nameField, serviceField, messageField, contactHandleField]);
+    
         let isValid = true;
-        
-        // Validate name
-        if (!validateRequired(nameField)) {
+    
+        if (!validateRequired(nameField)) isValid = false;
+        if (!validateRequired(serviceField)) isValid = false;
+        if (!validateRequired(messageField)) isValid = false;
+        if (!validateRequired(contactHandleField)) {
             isValid = false;
         }
-        
-        // Validate email
-        if (!validateEmail(emailField)) {
-            isValid = false;
-        }
-        
-        // Validate message
-        if (!validateRequired(messageField)) {
-            isValid = false;
-        }
-        
-        // Validate enquiry type
-        if (!validateRequired(enquiryTypeField)) {
-            isValid = false;
-        }
-        
-        // If form is valid, show success message
-        if (isValid) {
-            // In a real implementation, you would send data to a server here
-            // For now, we'll just show the success message
-            
-            // Hide form
-            form.style.display = 'none';
-            
-            // Show success message
-            formSuccess.style.display = 'block';
-            
-            // Optional: Scroll to success message
-            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Log form data (for demonstration)
-            console.log('Form submitted:', {
-                name: nameField.value.trim(),
-                email: emailField.value.trim(),
-                message: messageField.value.trim(),
-                enquiryType: enquiryTypeField.value.trim()
+    
+        if (!isValid) return;
+    
+        const formData = new FormData(form);
+    
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
             });
+    
+            const result = await response.json();
+    
+            if (result.success) {
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                form.reset();
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            alert('Error submitting form. Please try again later.');
+            console.error(error);
         }
     });
 }
@@ -226,11 +231,8 @@ function initContactForm() {
  * @param {Array} fields - Array of form field elements
  */
 function resetValidation(fields) {
-    fields.forEach(field => {
-        if (field) { // Only proceed if the field exists
-            field.classList.remove('is-valid');
-            field.classList.remove('is-invalid');
-        }
+    fields.forEach(function(field) {
+        field.classList.remove('is-invalid');
     });
 }
 
