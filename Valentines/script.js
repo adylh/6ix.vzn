@@ -43,12 +43,8 @@ let thinkClickCount = 0;
 // Playful messages for "Let me think" button
 const thinkMessages = [
     "Take your time 😌",
-    "I'll wait forever 💕",
-    "Still here... 🥺",
-    "Pretty please? 🙏💖",
-    "I really like you! 💗",
-    "You're amazing ✨",
-    "Just say yes! 💘"
+    "No rush! ⏳",
+    "When you're ready🙂‍↕️",
 ];
 
 // ============================================
