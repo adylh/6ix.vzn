@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💖</title>
+    <meta name="description" content="A special Valentine's Day question just for you">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Romantic Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- FLOATING HEARTS BACKGROUND CONTAINER         -->
+    <!-- ============================================ -->
+    <div id="floating-hearts" class="floating-hearts-container"></div>
+
+    <!-- ============================================ -->
+    <!-- CONFETTI CONTAINER (appears on "Yes" click)  -->
+    <!-- ============================================ -->
+    <div id="confetti-container" class="confetti-container"></div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: HERO                              -->
+    <!-- ============================================ -->
+    <section id="hero-section" class="hero-section min-vh-100 d-flex flex-column align-items-center justify-content-center position-relative">
+        <!-- Decorative floating hearts -->
+        <div class="decorative-heart position-absolute" style="top: 40px; left: 40px; font-size: 3rem;">💖</div>
+        <div class="decorative-heart position-absolute" style="top: 80px; right: 64px; font-size: 2.5rem; animation-delay: 0.5s;">💕</div>
+        <div class="decorative-heart position-absolute" style="bottom: 128px; left: 80px; font-size: 2rem; animation-delay: 1s;">💗</div>
+        <div class="decorative-heart position-absolute" style="bottom: 96px; right: 40px; font-size: 2.5rem;">✨</div>
+
+        <div class="container text-center animate-fade-in-up">
+            <!-- Main heading - Replace "Beautiful" with her name -->
+            <h1 class="font-playfair display-2 fw-bold mb-4">
+                Hey <span class="text-gradient-romantic fst-italic">Miss Hottie</span> 💖
+            </h1>
+
+            <!-- Subtext -->
+            <p class="font-lora fs-4 text-muted-custom mb-5 fst-italic">
+                I've got something special to ask you…
+            </p>
+
+            <!-- Continue button -->
+            <button id="continue-btn" class="btn-valentine">
+                <span class="d-flex align-items-center gap-2">
+                    Continue
+                    <span class="fs-4 bounce-gentle">💌</span>
+                </span>
+            </button>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="position-absolute bottom-0 mb-4 scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: VALENTINE QUESTION                -->
+    <!-- ============================================ -->
+    <section id="question-section" class="question-section min-vh-100 d-flex flex-column align-items-center justify-content-center position-relative d-none">
+        <!-- Decorative hearts -->
+        <div class="decorative-heart position-absolute" style="top: 64px; left: 32px; font-size: 3.5rem;">💕</div>
+        <div class="decorative-heart position-absolute" style="top: 96px; right: 48px; font-size: 3rem; animation-delay: 0.3s;">💖</div>
+        <div class="decorative-heart position-absolute" style="bottom: 80px; left: 64px; font-size: 2.5rem; animation-delay: 0.6s;">💗</div>
+        <div class="decorative-heart position-absolute" style="bottom: 128px; right: 32px; font-size: 3rem;">💓</div>
+
+        <div class="container text-center">
+            <!-- Big question -->
+            <div class="animate-fade-in-up">
+                <h2 class="font-playfair display-3 fw-bold mb-3">
+                    Will you be my
+                </h2>
+                <h2 class="font-playfair display-1 fw-bold text-gradient-romantic fst-italic mb-5">
+                    Valentine?
+                </h2>
+            </div>
+
+            <!-- Heart decoration -->
+            <div class="fs-1 mb-5 pulse-heart" style="font-size: 5rem;">
+                💝
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex flex-column flex-sm-row gap-4 justify-content-center align-items-center">
+                <!-- Yes button -->
+                <button id="yes-btn" class="btn-yes pulse-scale">
+                    <span class="d-flex align-items-center gap-3">
+                        Yes!
+                        <span style="font-size: 1.75rem;">💖</span>
+                    </span>
+                </button>
+
+                <!-- Think button -->
+                <button id="think-btn" class="btn-think">
+                    <span class="d-flex align-items-center gap-2">
+                        <span class="fs-5">😅</span>
+                        <span id="think-text">Let me think</span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Popup message container -->
+            <div id="popup-message" class="mt-4 d-none">
+                <div class="valentine-card d-inline-block px-4 py-3 animate-fade-in-up">
+                    <p class="font-lora fs-5 mb-0" id="popup-text"></p>
+                </div>
+            </div>
+
+            <!-- Encouragement message -->
+            <p id="encouragement" class="mt-4 font-lora text-muted-custom fst-italic d-none animate-fade-in-up">
+                The "Yes" button is waiting for you... 💕
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: RESPONSE FORM (Web3Forms)         -->
+    <!-- ============================================ -->
+    <section id="response-section" class="response-section min-vh-100 d-flex align-items-center justify-content-center py-5 d-none">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="valentine-card animate-fade-in-up">
+                        <!-- Header -->
+                        <div class="text-center mb-4">
+                            <div style="font-size: 4rem;">💌</div>
+                            <h3 class="font-playfair display-6 fw-bold mb-2">
+                                You Said Yes!
+                            </h3>
+                            <p class="font-lora text-muted-custom">
+                                I'm so happy! Want to leave me a little note?
+                            </p>
+                        </div>
+
+                        <!-- Form - Web3Forms Integration -->
+                        <form id="valentine-form" action="https://api.web3forms.com/submit" method="POST">
+                            <!-- 
+                                IMPORTANT: Replace YOUR_WEB3FORMS_ACCESS_KEY with your actual key
+                                Get your free key at: https://web3forms.com/
+                            -->
+                            <input type="hidden" name="access_key" value="403eedb8-9519-4f26-9614-4ccf9fe176ac">
+                            <input type="hidden" name="subject" value="💖 Valentine Response: YES!">
+                            <input type="hidden" name="valentine_response" value="YES">
+                            
+                            <!-- Redirect URL (optional) - uncomment and set your URL -->
+                            <!-- <input type="hidden" name="redirect" value="https://yoursite.com/thank-you"> -->
+
+                            <!-- Name field -->
+                            <div class="mb-4">
+                                <label for="name" class="form-label font-lora fw-medium">
+                                    Your Name <span class="text-muted-custom fw-normal">(optional)</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control valentine-input" 
+                                    id="name" 
+                                    name="name"
+                                    placeholder="Your lovely name..."
+                                >
+                            </div>
+
+                            <!-- Message field -->
+                            <div class="mb-4">
+                                <label for="message" class="form-label font-lora fw-medium">
+                                    A Short Message <span class="text-muted-custom fw-normal">(optional)</span>
+                                </label>
+                                <textarea 
+                                    class="form-control valentine-input" 
+                                    id="message" 
+                                    name="message"
+                                    rows="4"
+                                    placeholder="Write something sweet..."
+                                ></textarea>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn-valentine w-100" id="submit-btn">
+                                <span class="d-flex align-items-center justify-content-center gap-2">
+                                    Send my answer
+                                    <span class="fs-5">💌</span>
+                                </span>
+                            </button>
+                        </form>
+
+                        <!-- Skip option -->
+                        <button id="skip-btn" class="btn btn-link w-100 mt-3 text-muted-custom font-lora">
+                            Skip for now →
+                        </button>
+                    </div>
+
+                    <!-- Success message (shown after submission) -->
+                    <div id="success-message" class="valentine-card text-center d-none animate-fade-in-up">
+                        <div style="font-size: 4rem;">💝</div>
+                        <h3 class="font-playfair display-6 fw-bold mb-3">
+                            It’s a yes! 💖
+                        </h3>
+                        <p class="font-lora fs-5 text-muted-custom">
+                            Thank you for saying yes — it really means a lot 💕 I’ll be in touch soon so we can plan something that works perfectly for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer id="footer" class="footer py-4 text-center d-none">
+        <p class="font-lora small text-muted-custom mb-0">
+            Made with 💖 just for you
+        </p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
