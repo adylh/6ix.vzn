@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initContactForm();
+    initAnnouncementTicker();
 });
+
+
 
 // ============================================
 // NAVBAR FUNCTIONALITY
@@ -87,11 +90,6 @@ function initSmoothScroll() {
             
             if (targetElement) {
                 e.preventDefault();
-                
-                // Calculate offset for fixed navbar
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight;
-                
                 // Smooth scroll to target
                 window.scrollTo({
                     top: targetPosition,
@@ -327,3 +325,37 @@ function throttle(func, limit) {
         }
     };
 }
+
+// ============================================
+// PROMO TICKER (offset + close)
+// ============================================
+document.addEventListener('DOMContentLoaded', function () {
+    const bar = document.getElementById('promoBar');
+    const closeBtn = document.getElementById('promoClose');
+    const nav = document.querySelector('.navbar.fixed-top');
+  
+    if (!bar) return;
+  
+    function applyOffsets() {
+      if (!nav) return;
+  
+      const barVisible = getComputedStyle(bar).display !== 'none';
+      const barH = barVisible ? bar.offsetHeight : 0;
+  
+      // push fixed navbar down
+      nav.style.top = barH + 'px';
+  
+      // push page content down by (bar + navbar)
+      document.body.style.paddingTop = (barH + nav.offsetHeight) + 'px';
+    }
+  
+    // restore close state
+    if (localStorage.getItem('promoClosed') === 'true') {
+      bar.style.display = 'none';
+    }
+  
+  
+    applyOffsets();
+    window.addEventListener('resize', applyOffsets);
+  });
+
