@@ -1,380 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tap for more...</title>
-    <meta name="description" content="A special Valentine's Day question just for you">
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts - Romantic Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday — A Celebration of You</title>
+<meta name="description" content="A magical birthday tribute filled with memories, love, and wishes." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="stylesheet" href="/Valentines/style.css" />
 </head>
 <body>
-    <!-- ============================================ -->
-    <!-- FLOATING HEARTS BACKGROUND CONTAINER         -->
-    <!-- ============================================ -->
-    <div id="floating-hearts" class="floating-hearts-container"></div>
 
-    <!-- ============================================ -->
-    <!-- CONFETTI CONTAINER (appears on "Yes" click)  -->
-    <!-- ============================================ -->
-    <div id="confetti-container" class="confetti-container"></div>
+<!-- HERO -->
+<section class="hero d-flex align-items-center justify-content-center text-center px-3">
+  <div class="hero-bg"></div>
+  <i class="bi bi-stars float-icon icon-1"></i>
+  <i class="bi bi-heart-fill float-icon icon-2"></i>
+  <i class="bi bi-gift-fill float-icon icon-3"></i>
+  <i class="bi bi-balloon-heart-fill float-icon icon-4"></i>
 
-    <!-- ============================================ -->
-    <!-- SECTION 1: HERO                              -->
-    <!-- ============================================ -->
-    <section id="hero-section" class="hero-section min-vh-100 d-flex flex-column align-items-center justify-content-center position-relative">
-        <!-- Decorative floating hearts -->
-        <div class="decorative-heart position-absolute" style="top: 40px; left: 40px; font-size: 3rem;">💖</div>
-        <div class="decorative-heart position-absolute" style="top: 80px; right: 64px; font-size: 2.5rem; animation-delay: 0.5s;">💕</div>
-        <div class="decorative-heart position-absolute" style="bottom: 128px; left: 80px; font-size: 2rem; animation-delay: 1s;">💗</div>
-        <div class="decorative-heart position-absolute" style="bottom: 96px; right: 40px; font-size: 2.5rem;">✨</div>
+  <div class="container position-relative" style="max-width: 900px;">
+    <p class="font-script accent shimmer fs-3 mb-2">It's your special day</p>
+    <h1 class="display-1 fw-bold lh-1 mb-3">
+      <span class="text-gradient">Happy</span><br />
+      <span class="font-script fst-italic text-white" style="font-size: 1.1em;">Birthday</span>
+    </h1>
+    <input type="text" id="name" value="Chiddy"
+      class="form-control bg-transparent border-0 text-center font-script accent fs-1 editable-name" />
+    <p class="mt-4 text-white-75 fs-5 mx-auto" style="max-width: 640px;">
+      A little corner of the internet built just for you — to celebrate every smile, every memory, every dream.
+    </p>
+    <a href="#message" class="btn btn-glow mt-4 px-4 py-2">
+      <i class="bi bi-arrow-down-circle me-2"></i> Open my gift
+    </a>
+  </div>
+</section>
 
-        <div class="container text-center animate-fade-in-up">
-            <!-- Main heading - Replace "Beautiful" with her name -->
-            <h1 class="font-playfair display-2 fw-bold mb-4">
-                Hey <span class="text-gradient-romantic fst-italic">Miss Hottie</span> 💖
-            </h1>
+<!-- HERO PORTRAIT -->
+<section class="py-5 px-3">
+  <div class="container" style="max-width: 720px;">
+    <div class="upload-card hero-portrait shadow-glow d-flex flex-column align-items-center justify-content-center">
+      <img id="hero-preview" src="/Valentines/images/IMG_0686.jpg" alt="The birthday star" />
+    </div>
+  </div>
+</section>
 
-            <!-- Subtext -->
-            <p class="font-lora fs-4 text-muted-custom mb-5 fst-italic">
-                I've got something special to ask you…
-            </p>
+<!-- MESSAGE -->
+<section id="message" class="py-5 px-3">
+  <div class="container text-center" style="max-width: 760px;">
+    <i class="bi bi-heart-fill display-5 text-pink shimmer mb-3"></i>
+    <h2 class="font-script text-gradient display-3 mb-4">A Message For You</h2>
+    <div class="glass rounded-4 p-4 p-md-5 shadow-soft">
+      <textarea id="message-text" rows="7" class="form-control bg-transparent border-0 text-center text-white fs-5 message-area">Today we celebrate the most wonderful soul. May your year be filled with laughter, dreams come true, and endless love. You shine brighter than every star in the sky. ✨</textarea>
+      <hr class="border-light opacity-25 my-4" />
+      <input type="text" id="signature" value="With all my love"
+        class="form-control bg-transparent border-0 text-center font-script accent fs-2" />
+    </div>
+  </div>
+</section>
 
-            <!-- Continue button -->
-            <button id="continue-btn" class="btn-valentine">
-                <span class="d-flex align-items-center gap-2">
-                    Continue
-                    <span class="fs-4 bounce-gentle">💌</span>
-                </span>
-            </button>
+<!-- MEMORIES -->
+<section class="py-5 px-3">
+  <div class="container" style="max-width: 1100px;">
+    <div class="text-center mb-5">
+      <p class="font-script accent fs-4 mb-1">moments to remember</p>
+      <h2 class="display-3 fw-bold text-gradient">Our Memories</h2>
+    </div>
+    <div class="row g-4" id="memories-grid">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="upload-card memory-card shadow-soft">
+          <img src="/Valentines/images/memory-1.jpg" alt="Memory 1" />
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="position-absolute bottom-0 mb-4 scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-dot"></div>
-            </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="upload-card memory-card shadow-soft">
+          <img src="/Valentines/images/memory-2.jpg" alt="Memory 2" />
         </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SECTION 2: VALENTINE QUESTION                -->
-    <!-- ============================================ -->
-    <section id="question-section" class="question-section min-vh-100 d-flex flex-column align-items-center justify-content-center position-relative d-none">
-        <!-- Decorative hearts -->
-        <div class="decorative-heart position-absolute" style="top: 64px; left: 32px; font-size: 3.5rem;">💕</div>
-        <div class="decorative-heart position-absolute" style="top: 96px; right: 48px; font-size: 3rem; animation-delay: 0.3s;">💖</div>
-        <div class="decorative-heart position-absolute" style="bottom: 80px; left: 64px; font-size: 2.5rem; animation-delay: 0.6s;">💗</div>
-        <div class="decorative-heart position-absolute" style="bottom: 128px; right: 32px; font-size: 3rem;">💓</div>
-
-        <div class="container text-center">
-            <!-- Big question -->
-            <div class="animate-fade-in-up">
-                <h2 class="font-playfair display-3 fw-bold mb-3">
-                    Will you be my
-                </h2>
-                <h2 class="font-playfair display-1 fw-bold text-gradient-romantic fst-italic mb-5">
-                    Valentine?
-                </h2>
-            </div>
-
-            <!-- Heart decoration -->
-            <div class="fs-1 mb-5 pulse-heart" style="font-size: 5rem;">
-                💝
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex flex-column flex-sm-row gap-4 justify-content-center align-items-center">
-                <!-- Yes button -->
-                <button id="yes-btn" class="btn-yes pulse-scale">
-                    <span class="d-flex align-items-center gap-3">
-                        Yes!
-                        <span style="font-size: 1.75rem;">💖</span>
-                    </span>
-                </button>
-
-                <!-- Think button -->
-                <button id="think-btn" class="btn-think">
-                    <span class="d-flex align-items-center gap-2">
-                        <span class="fs-5">😅</span>
-                        <span id="think-text">Let me think</span>
-                    </span>
-                </button>
-            </div>
-
-            <!-- Popup message container -->
-            <div id="popup-message" class="mt-4 d-none">
-                <div class="valentine-card d-inline-block px-4 py-3 animate-fade-in-up">
-                    <p class="font-lora fs-5 mb-0" id="popup-text"></p>
-                </div>
-            </div>
-
-            <!-- Encouragement message -->
-            <p id="encouragement" class="mt-4 font-lora text-muted-custom fst-italic d-none animate-fade-in-up">
-                The "Yes" button is waiting for you... 💕
-            </p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="upload-card memory-card shadow-soft">
+          <img src="/Valentines/images/memory-3.jpg" alt="Memory 3" />
         </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SECTION 3: RESPONSE FORM (Web3Forms)         -->
-    <!-- ============================================ -->
-    <section id="response-section" class="response-section min-vh-100 d-flex align-items-center justify-content-center py-5 d-none">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6">
-                    <div class="valentine-card animate-fade-in-up">
-                        <!-- Header -->
-                        <div class="text-center mb-4">
-                            <div style="font-size: 4rem;">💌</div>
-                            <h3 class="font-playfair display-6 fw-bold mb-2">
-                                You Said Yes!
-                            </h3>
-                            <p class="font-lora text-muted-custom">
-                                I'm so happy! Want to leave me a little note?
-                            </p>
-                        </div>
-
-                        <!-- Form - Web3Forms Integration -->
-                        <form id="valentine-form" action="https://api.web3forms.com/submit" method="POST">
-                            <!-- 
-                                IMPORTANT: Replace YOUR_WEB3FORMS_ACCESS_KEY with your actual key
-                                Get your free key at: https://web3forms.com/
-                            -->
-                            <input type="hidden" name="access_key" value="403eedb8-9519-4f26-9614-4ccf9fe176ac">
-                            <input type="hidden" name="subject" value="💖 Valentine Response: YES!">
-                            <input type="hidden" name="valentine_response" value="YES">
-                            
-                            <!-- Redirect URL (optional) - uncomment and set your URL -->
-                            <!-- <input type="hidden" name="redirect" value="https://yoursite.com/thank-you"> -->
-
-                            <!-- Name field -->
-                            <div class="mb-4">
-                                <label for="name" class="form-label font-lora fw-medium">
-                                    Your Name: 
-                                </label>
-                                <input 
-                                    type="text" 
-                                    class="form-control valentine-input" 
-                                    id="name" 
-                                    name="name"
-                                    placeholder="Your lovely name..."
-                                >
-                            </div>
-
-                            <!-- Message field -->
-                            <div class="mb-4">
-                                <label for="message" class="form-label font-lora fw-medium">
-                                    A Short Message <span class="text-muted-custom fw-normal">(optional)</span>
-                                </label>
-                                <textarea 
-                                    class="form-control valentine-input" 
-                                    id="message" 
-                                    name="message"
-                                    rows="4"
-                                    placeholder="Leave a lil sumn :)"
-                                ></textarea>
-                            </div>
-
-                            <!-- Submit button -->
-                            <button type="submit" class="btn-valentine w-100" id="submit-btn">
-                                <span class="d-flex align-items-center justify-content-center gap-2">
-                                    Send my answer
-                                    <span class="fs-5">💌</span>
-                                </span>
-                            </button>
-                        </form>
-
-                        <!-- Skip option -->
-                        <button id="skip-btn" class="btn btn-link w-100 mt-3 text-muted-custom font-lora">
-                            It doesn't end here...
-                        </button>
-                    </div>
-
-                    <!-- Success message (shown after submission) -->
-                    <div id="success-message" class="valentine-card text-center d-none animate-fade-in-up">
-                        <div style="font-size: 4rem;">💝</div>
-                        <h3 class="font-playfair display-6 fw-bold mb-3">
-                            You picked the right answer 🤏🏿!
-                        </h3>
-                        <p class="font-lora fs-5 text-muted-custom">
-                            Scroll to see what I have planned for us 💕
-                        </p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="upload-card memory-card shadow-soft">
+          <img src="/Valentines/images/memory-4.jpg" alt="Memory 4" />
         </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SECTION 4: DATE DETAILS                      -->
-    <!-- ============================================ -->
-    <section id="date-section" class="date-section min-vh-100 d-flex align-items-center justify-content-center py-5 d-none">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <!-- Header -->
-                    <div class="text-center mb-5 animate-fade-in-up">
-                        <div style="font-size: 4rem;">📅</div>
-                        <h3 class="font-playfair display-4 fw-bold">
-                            Our Valentine's Date: Day time
-                        </h3>
-                    </div>
-
-                    <!-- Date details card -->
-                    <div class="date-card animate-fade-in-up">
-                        <!-- Details grid -->
-                        <div class="row g-4 mb-4">
-                            <!-- Location -->
-                            <div class="col-12">
-                                <div class="detail-item d-flex align-items-center gap-3 p-4 rounded-4">
-                                    <div style="font-size: 2.5rem;">📍</div>
-                                    <div>
-                                        <p class="font-lora small text-muted-custom text-uppercase letter-spacing mb-1">Location</p>
-                                        <p class="font-playfair fs-4 fw-semibold mb-0">Blank Studios, 40 Brazennose St, M2 5EA.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Time -->
-                            <div class="col-12">
-                                <div class="detail-item d-flex align-items-center gap-3 p-4 rounded-4">
-                                    <div style="font-size: 2.5rem;">🕰</div>
-                                    <div>
-                                        <p class="font-lora small text-muted-custom text-uppercase letter-spacing mb-1">Time</p>
-                                        <p class="font-playfair fs-4 fw-semibold mb-0">12:00 PM, February 14th</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Activity -->
-                            <div class="col-12">
-                                <div class="detail-item d-flex align-items-center gap-3 p-4 rounded-4">
-                                    <div style="font-size: 2.5rem;">👨🏾‍🎨</div>
-                                    <div>
-                                        <p class="font-lora small text-muted-custom text-uppercase letter-spacing mb-1">What We'll Do</p>
-                                        <p class="font-playfair fs-4 fw-semibold mb-0">Paint A Bear With Blank Studio Workshop. </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal message -->
-                        <div class="text-center pt-4 border-top">
-                            <div style="font-size: 2rem;" class="mb-3">💖</div>
-                            <p class="font-lora fs-5 fst-italic mb-0 px-3">
-                                Make sure to wear something you don't mind getting dirty! As casual as you want🙂‍↕️.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-3">
-                <div class="col-12 col-lg-8">
-                    <!-- Header -->
-                    <div class="text-center mb-5 animate-fade-in-up">
-                        <h3 class="font-playfair display-4 fw-bold">
-                            Our Valentine's Date: Evening time
-                        </h3>
-                    </div>
-
-                    <!-- Date details card -->
-                    <div class="date-card animate-fade-in-up">
-                        <!-- Details grid -->
-                        <div class="row g-4 mb-4">
-                            <!-- Location -->
-                            <div class="col-12">
-                                <div class="detail-item d-flex align-items-center gap-3 p-4 rounded-4">
-                                    <div style="font-size: 2.5rem;">📍</div>
-                                    <div>
-                                        <p class="font-lora small text-muted-custom text-uppercase letter-spacing mb-1">Location</p>
-                                        <p class="font-playfair fs-4 fw-semibold mb-0">Habbibi, 1 Hardman Blvd, Manchester M3 3AQ</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Time -->
-                            <div class="col-12">
-                                <div class="detail-item d-flex align-items-center gap-3 p-4 rounded-4">
-                                    <div style="font-size: 2.5rem;">🕰</div>
-                                    <div>
-                                        <p class="font-lora small text-muted-custom text-uppercase letter-spacing mb-1">Time</p>
-                                        <p class="font-playfair fs-4 fw-semibold mb-0">19:00 PM, February 14th</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Activity -->
-                            <div class="col-12">
-                                <div class="detail-item d-flex align-items-center gap-3 p-4 rounded-4">
-                                    <div style="font-size: 2.5rem;">🍽</div>
-                                    <div>
-                                        <p class="font-lora small text-muted-custom text-uppercase letter-spacing mb-1">What We'll Do</p>
-                                        <p class="font-playfair fs-4 fw-semibold mb-0">Eat good food and have fun!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal message -->
-                        <div class="text-center pt-4 border-top">
-                            <div style="font-size: 2rem;" class="mb-3">💖</div>
-                            <p class="font-lora fs-5 fst-italic mb-0 px-3">
-                                Dress code: Smart casual | Colour: Something beige/brown. <br>I trust you'll look amazing as always🙂‍↕️.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="upload-card memory-card shadow-soft">
+          <img src="/Valentines/images/memory-5.jpg" alt="Memory 5" />
         </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SECTION 5: FINAL MESSAGE                     -->
-    <!-- ============================================ -->
-    <section id="final-section" class="final-section py-5 position-relative overflow-hidden d-none" style="min-height: 60vh;">
-        <!-- Background hearts -->
-        <div class="decorative-heart position-absolute opacity-25" style="top: 40px; left: 10%; font-size: 2.5rem;">💕</div>
-        <div class="decorative-heart position-absolute opacity-25" style="top: 80px; right: 15%; font-size: 2rem; animation-delay: 0.3s;">💖</div>
-        <div class="decorative-heart position-absolute opacity-25" style="bottom: 80px; left: 20%; font-size: 3rem; animation-delay: 0.5s;">💗</div>
-        <div class="decorative-heart position-absolute opacity-25" style="bottom: 64px; right: 25%; font-size: 2.5rem; animation-delay: 0.7s;">💓</div>
-
-        <div class="container h-100 d-flex align-items-center justify-content-center">
-            <div class="text-center animate-fade-in-up">
-                <!-- Big heart -->
-                <div class="mb-4 pulse-heart" style="font-size: 6rem;">
-                    ❤️
-                </div>
-
-                <!-- Closing message -->
-                <h2 class="font-playfair display-5 fw-bold mb-4">
-                    Guess who I'm spending<br>
-                    <span class="text-gradient-romantic">Valentine's Day</span><br>
-                    with 😝
-                </h2>
-
-                <p class="font-lora fs-4 text-muted-custom fst-italic mb-5">
-                    Lucky me innit!
-                </p>
-            </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="upload-card memory-card shadow-soft">
+          <img src="/Valentines/images/memory-6.jpg" alt="Memory 6" />
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer class="text-center py-5 px-3">
+  <i class="bi bi-stars fs-2 accent shimmer"></i>
+  <p class="font-script fs-3 text-gradient mt-2 mb-1">Wishing you a year as wonderful as you are</p>
+  <p class="small text-white-50">Made with love 💕</p>
+</footer>
 
-
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
